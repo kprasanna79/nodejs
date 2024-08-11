@@ -1,18 +1,12 @@
 const express = require('express');
 const courses = require('./routes/courses')
+const cors = require('cors');
 
 const app = express();
 
 app.use(express.json());
 app.use('/', courses);
+app.use(cors());
 
+module.exports = app;
 
-
-
-
-
-const port = process.env.PORT || 3000;
-
-app.listen(port, ()=> {
-    console.log(`Listening to Port ${port}....`);
-})
